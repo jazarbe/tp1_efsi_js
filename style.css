@@ -1,0 +1,95 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 20px;
+    padding: 0px;
+    background-color: #85b7d4 !important;
+    box-shadow: none;
+}
+
+body{
+    background-color: #85b7d4 !important;
+}
+
+h3 {
+    color: #341fa8 !important;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 300;
+    margin: 2%;
+    padding: 1%;
+}
+label{
+    font-weight: 500;
+    color: #434157;
+}
+
+h2{
+    color: #17b3a3 !important;
+    font-size: 20px !important;
+    margin: 1.5%;
+    margin-bottom: 3% !important;
+}
+
+form{
+    margin: 2%;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-radius: 20px !important;
+}
+
+input[type="number"] {
+    width: 15%;
+    padding: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-radius: 20px !important;
+}
+
+input:hover, textarea:hover {
+    background-color: lightgoldenrodyellow;
+    transition: 0.5s;
+}
+
+
+section{
+    margin: 2%;
+    background-color: lightblue;
+    border-radius: 5px;
+    padding: 2%;
+    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+button{
+    background-color: #341fa8;
+    color: white;
+    padding: 8px;
+    border:none;
+    border-radius: 20px !important;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 0 0 15px #e9f0a6;
+    color: white;
+    padding: 8px;
+    border:none;
+    border-radius: 20px !important;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.desafio{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
