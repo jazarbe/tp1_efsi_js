@@ -313,10 +313,134 @@ formEj15.addEventListener('submit', e => {
 // #endregion
 
 // #region Ejercicio 16
+const formEj16 = document.getElementById("EJ16");
+const nombreProducto = document.getElementById("nombreProducto");
+const resultado16 = document.getElementById("resultado16");
+
+function buscarProducto(productos, nombre){
+    return productos.find(producto => producto.nombre.toLowerCase() === nombre.toLowerCase());
+}
+
+formEj16.addEventListener('submit', e => {
+    e.preventDefault();
+    const productoBuscado = buscarProducto(productos /*  */ , nombreProducto.value);
+    if(productoBuscado){
+        resultado16.textContent = `El precio del producto "${productoBuscado.nombre}" es: $${productoBuscado.precio}`;
+    } else {
+        resultado16.textContent = `Producto "${nombreProducto.value}" no encontrado.`;
+    }
+});
 // #endregion
 
 // #region Ejercicio 17
+const formEj17 = document.getElementById("EJ17");
+const resultado17 = document.getElementById("resultado17");
+
+function precioCaro(productos){
+    return productos.filter(producto => producto.precio > 50).map(producto => producto.nombre);
+}
+
+formEj17.addEventListener('submit', e => {
+    e.preventDefault();
+    const productosCaros = precioCaro(productos).join(", ");
+    resultado17.textContent = `Los productos con precio mayor a $50 es/son: ${productosCaros}`;
+});
 // #endregion
 
 // #region Ejercicio 18
+const formEj18 = document.getElementById("EJ18");
+const resultado18 = document.getElementById("resultado18");
+
+const array = [1, 2, 3, 4, 5];
+
+function calcularPromedio(array){
+    const suma = array.reduce((total, valor) => total + valor, 0);
+    return suma / array.length;
+}
+
+formEj18.addEventListener('submit', e => {
+    e.preventDefault();
+    const promedio = calcularPromedio(array.map(num => parseFloat(num)));
+    resultado18.textContent = `El promedio del array es: ${promedio.toFixed(2)}`;
+});
+// #endregion
+
+// #region Desafio Final
+const users = [
+    {id:1, nombre:"Ana", edad:20},
+    {id:2, nombre:"Juan", edad:15},
+    {id:3, nombre:"Pedro", edad:30}
+]
+
+    // #region DF1
+    const formDF1 = document.getElementById("desafio1");
+    const resultadoDF1 = document.getElementById("resultadoDF1");
+
+    function obtenerUsuarios(){
+        return users;
+    }
+
+    formDF1.addEventListener('submit', e => {
+        e.preventDefault();
+        const nombres = obtenerUsuarios().map(user => user.nombre).join(", ");
+        resultadoDF1.textContent = `Los nombres de los usuarios son: ${nombres}`;
+    });
+    // #endregion
+
+    // #region DF2
+    const formDF2 = document.getElementById("desafio2");
+    const resultadoDF2 = document.getElementById("resultadoDF2");
+    const inputId = document.getElementById("idUsuario");
+
+    function obtenerUsuarioPorId(id){
+        return users.find(user => user.id === id);
+    }
+
+    formDF2.addEventListener('submit', e => {
+        e.preventDefault();
+        const usuario = obtenerUsuarioPorId(parseInt(inputId.value));
+        if(usuario){
+            resultadoDF2.textContent = `El usuario es: ${usuario.nombre}, Edad: ${usuario.edad}`;
+        } else {
+            resultadoDF2.textContent = `Usuario con Id ${inputId.value} no encontrado.`;
+        }
+    });
+    // #endregion
+
+    // #region DF3
+    const formDF3 = document.getElementById("desafio3");
+    const resultadoDF3 = document.getElementById("resultadoDF3");
+
+    function obtenerUsuariosMayores(){
+        return users.filter(user => user.edad >= 18).map(user => user.nombre).join(", ");
+    }
+
+    formDF3.addEventListener('submit', e => {
+        e.preventDefault();
+        resultadoDF3.textContent = `Los usuarios mayores de edad son: ${obtenerUsuariosMayores()}`;
+    });
+    // #endregion
+
+    // #region DF4
+    const formDF4 = document.getElementById("desafio4");
+    const resultadoDF4 = document.getElementById("resultadoDF4");
+    const nombreUsuario = document.getElementById("nombreUsuario");
+    const edadUsuario = document.getElementById("edadUsuario");
+
+    function agregarUsuario(nombre, edad){
+        const nuevoUsuario = {
+            id: users.length + 1,
+            nombre: nombre,
+            edad: edad
+        };
+        users.push(nuevoUsuario);
+        return nuevoUsuario;
+    }
+
+    formDF4.addEventListener('submit', e => {
+        e.preventDefault();
+        const nuevoUsuario = agregarUsuario(nombreUsuario.value, parseInt(edadUsuario.value));
+        resultadoDF4.textContent = `Nuevo usuario agregado: ${nuevoUsuario.nombre}, Edad: ${nuevoUsuario.edad}`;
+    });
+    // #endregion
 // #endregion
